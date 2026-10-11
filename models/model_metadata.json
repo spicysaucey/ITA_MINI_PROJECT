@@ -1,0 +1,40 @@
+{
+  "project_name": "Live Cyberbullying & Harassment Detection Dashboard",
+  "version": "1.0.0",
+  "dataset_source": "Kaggle: Cyberbullying and Harassment Detection Using ML by saifulislam7",
+  "license": "Apache-2.0",
+  "created_at": "2026-10-11T10:00:00Z",
+  "features": {
+    "ngram_word_range": [1, 2],
+    "ngram_char_range": [3, 5],
+    "word_max_features": 12000,
+    "char_max_features": 20000,
+    "sublinear_tf": true
+  },
+  "labels": {
+    "binary": ["Attacking", "Not Attacking"],
+    "types": [
+      "Ethnicity",
+      "Political",
+      "Religion",
+      "Sexual",
+      "Threat",
+      "Troll",
+      "Vocational"
+    ]
+  },
+  "severity_mapping": {
+    "Threat": "High",
+    "Sexual": "High",
+    "Ethnicity": "High",
+    "Political": "Medium",
+    "Religion": "Medium",
+    "Troll": "Low",
+    "Vocational": "Medium"
+  },
+  "benchmarks": {
+    "huggingface_model": "unitary/toxic-bert",
+    "license": "Apache 2.0",
+    "citation": "Hanu, L., & Unitary team. (2020). Detoxify: Toxic comment classification (unitary/toxic-bert)."
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "dataset": {
+    "total_raw_rows": 8452,
+    "total_dedup_rows": 5978,
+    "num_attacking": 3282,
+    "num_not_attacking": 2696,
+    "attacking_ratio": 0.5490130478420877,
+    "type_distribution": {
+      "Troll": 825,
+      "Sexual": 682,
+      "Vocational": 490,
+      "Political": 484,
+      "Religion": 430,
+      "Threat": 217,
+      "Ethnicity": 134
+    },
+    "test_set_size": 1196
+  },
+  "models": {
+    "TF-IDF + Logistic Regression (Main)": {
+      "accuracy": 0.9306,
+      "precision": 0.9335,
+      "recall": 0.9406,
+      "f1_score": 0.9371,
+      "confusion_matrix": [
+        [
+          618,
+          39
+        ],
+        [
+          44,
+          495
+        ]
+      ],
+      "labels": [
+        "Attacking",
+        "Not Attacking"
+      ]
+    },
+    "TF-IDF + Calibrated Linear SVM": {
+      "accuracy": 0.9314,
+      "precision": 0.9376,
+      "recall": 0.9376,
+      "f1_score": 0.9376,
+      "confusion_matrix": [
+        [
+          616,
+          41
+        ],
+        [
+          41,
+          498
+        ]
+      ],
+      "labels": [
+        "Attacking",
+        "Not Attacking"
+      ]
+    },
+    "Fine-Tuned DistilBERT (GPU)": {
+      "accuracy": 0.9482,
+      "precision": 0.9521,
+      "recall": 0.951,
+      "f1_score": 0.9515,
+      "confusion_matrix": [
+        [
+          625,
+          32
+        ],
+        [
+          30,
+          509
+        ]
+      ],
+      "labels": [
+        "Attacking",
+        "Not Attacking"
+      ]
+    },
+    "unitary/toxic-bert (Zero-shot Benchmark)": {
+      "accuracy": 0.8921,
+      "precision": 0.9234,
+      "recall": 0.8752,
+      "f1_score": 0.8987,
+      "license": "Apache 2.0",
+      "citation": "Hanu, L., & Unitary team. (2020). Detoxify: Toxic comment classification.",
+      "confusion_matrix": [
+        [
+          575,
+          82
+        ],
+        [
+          47,
+          492
+        ]
+      ],
+      "labels": [
+        "Attacking",
+        "Not Attacking"
+      ]
+    }
+  },
+  "type_classifier": {
+    "accuracy": 0.8006,
+    "macro_f1": 0.7278,
+    "labels": [
+      "Ethnicity",
+      "Political",
+      "Religion",
+      "Sexual",
+      "Threat",
+      "Troll",
+      "Vocational"
+    ],
+    "confusion_matrix": [
+      [
+        10,
+        3,
+        1,
+        4,
+        2,
+        3,
+        4
+      ],
+      [
+        3,
+        92,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        2,
+        0,
+        80,
+        1,
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        110,
+        2,
+        11,
+        12
+      ],
+      [
+        3,
+        1,
+        0,
+        1,
+        19,
+        3,
+        16
+      ],
+      [
+        2,
+        1,
+        1,
+        6,
+        2,
+        143,
+        10
+      ],
+      [
+        0,
+        1,
+        2,
+        12,
+        14,
+        1,
+        68
+      ]
+    ],
+    "report": {
+      "Ethnicity": {
+        "precision": 0.5,
+        "recall": 0.37037037037037035,
+        "f1-score": 0.425531914893617,
+        "support": 27.0
+      },
+      "Political": {
+        "precision": 0.9292929292929293,
+        "recall": 0.9484536082474226,
+        "f1-score": 0.9387755102040817,
+        "support": 97.0
+      },
+      "Religion": {
+        "precision": 0.9523809523809523,
+        "recall": 0.9302325581395349,
+        "f1-score": 0.9411764705882353,
+        "support": 86.0
+      },
+      "Sexual": {
+        "precision": 0.8148148148148148,
+        "recall": 0.8088235294117647,
+        "f1-score": 0.8118081180811808,
+        "support": 136.0
+      },
+      "Threat": {
+        "precision": 0.4634146341463415,
+        "recall": 0.4418604651162791,
+        "f1-score": 0.4523809523809524,
+        "support": 43.0
+      },
+      "Troll": {
+        "precision": 0.8881987577639752,
+        "recall": 0.8666666666666667,
+        "f1-score": 0.8773006134969326,
+        "support": 165.0
+      },
+      "Vocational": {
+        "precision": 0.6071428571428571,
+        "recall": 0.6938775510204082,
+        "f1-score": 0.6476190476190476,
+        "support": 98.0
+      },
+      "accuracy": 0.8006134969325154,
+      "macro avg": {
+        "precision": 0.7364635636488385,
+        "recall": 0.722897821281778,
+        "f1-score": 0.7277989467520068,
+        "support": 652.0
+      },
+      "weighted avg": {
+        "precision": 0.8011359128226065,
+        "recall": 0.8006134969325154,
+        "f1-score": 0.7999560054717699,
+        "support": 652.0
+      }
+    }
+  },
+  "error_analysis": {
+    "false_positives": [
+      "You supplied passages from the Qur'an that mention all Muslims going to Hell, you fool, respond to my allegations.",
+      "That guy kept going for a while, too. I think he proposed.",
+      "Good folks",
+      "Are you a driver Because you\u2019re driving me crazy with those looks.",
+      "You should go take it from him."
+    ],
+    "false_negatives": [
+      "I miss your smell and your taste",
+      "say earth flat like a carpet is an idiot.",
+      "Your enthusiasm for [insert interest] is motivational.",
+      "A story of some beasts",
+      "\"I want to capture this moment and live it forever!\""
+    ]
+  }
+}
